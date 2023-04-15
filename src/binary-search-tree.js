@@ -1,4 +1,4 @@
-const { NotImplementedError } = require('../extensions/index.js');
+// const { NotImplementedError } = require('../extensions/index.js');
 
 // const { Node } = require('../extensions/list-tree.js');
 
@@ -7,42 +7,44 @@ const { NotImplementedError } = require('../extensions/index.js');
 * using Node from extensions
 */
 class BinarySearchTree {
-
+  constructor() {
+    this.arrayTree = []
+  }
   root() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.arrayTree.length == 0 ? null : this.arrayTree[0]
   }
 
-  add(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  add(data) {
+    this.arrayTree.push(data)
   }
 
-  has(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  has(data) {
+    return this.arrayTree.includes(data)
   }
 
-  find(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  find(data) {
+    function findEl(node, data) {
+      if (node.includes(data)) {
+        return data
+      } else {
+        return null
+      }
+    }
+    return findEl(this.arrayTree, data)
   }
-
-  remove(/* data */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  remove(data) {
+    return this.arrayTree.length == 0 || !this.arrayTree.includes(data) ? null : this.arrayTree.splice(this.arrayTree.indexOf(data), 1)
   }
 
   min() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.arrayTree.length == 0 ? null : Math.min(...this.arrayTree)
   }
 
   max() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return this.arrayTree.length == 0 ? null : Math.max(...this.arrayTree)
   }
 }
+
 
 module.exports = {
   BinarySearchTree
